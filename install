@@ -87,7 +87,7 @@ if ($to) {
     # Replace shebangs if necessary.
     my $thisperl = $Config{perlpath};
     if ($thisperl ne '/usr/bin/perl') {
-        system("cd $to; grep -r -l /usr/bin/perl | xargs perl -pi -e 's(^#!/usr/bin/perl)(#!$thisperl)'");
+        system("cd $to; grep -r -l /usr/bin/perl . | xargs perl -pi -e 's(^#!/usr/bin/perl)(#!$thisperl)'");
     }
 } elsif ($ln) {
     ln_sf( $ENV{GL_BINDIR}, "gitolite", $ln );
